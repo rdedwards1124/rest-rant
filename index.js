@@ -15,8 +15,9 @@ app.get("/", (req,res)=>{
 })
 //
 
+// Changed res.status(404).send to res.render and placed "error404" from error404.jsx
 app.get("*", (req,res)=>{
-    res.status(404).send("<h1>404 Page</h1>")
+    res.render("error")
 })
 
 app.listen(process.env.PORT)

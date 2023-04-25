@@ -4,11 +4,11 @@ const def = require('./default')
 
 const home = ()=>{
     return (
-        <def>
+        <Def>
             <main>
                 <h1>HOME</h1>
             </main>
-        </def>
+        </Def>
     )
 }
 
