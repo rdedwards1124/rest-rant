@@ -1,14 +1,10 @@
-// const router = require('express').Router()
-
-// router.get("/", (req,res)=>{
-//     res.send("GET /places")
-// })
-
-// module.exports = router
 
 // Part Five: Make Your Places Index Page
 /* I'm not sure what to change here to include the index page... */
+/* UPDATE: i figured it out :) */
 
+// Changed res.send to res.render 
+// Added an array of objects for my favorite restuarants
 const router = require('express').Router()
 
 router.get("/", (req,res)=>{
