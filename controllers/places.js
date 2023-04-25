@@ -5,3 +5,6 @@ router.get("/", (req,res)=>{
 })
 
 module.exports = router
+
+// Part Five: Make Your Places Index Page
+/* I'm not sure what to change here to include the index page... */
