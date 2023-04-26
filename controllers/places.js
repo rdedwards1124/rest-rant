@@ -9,12 +9,14 @@ const router = require('express').Router()
 
 router.get("/", (req,res)=>{
     let places = [{
+        id: 0,
         name: 'Red Lobster',
         city: 'Long Beach',
         state: 'CA',
         cuisines: 'Seafoods, Steaks, Pastas, Side Dishes',
         pic: 'https://www.fastfoodpost.com/wp-content/uploads/2022/02/Red-Lobster-Introduces-New-Date-Night-Feast-For-Two-And-Lobster-Topped-Stuffed-Flounder-As-Part-Of-Returning-Lobsterfest-Promotion.jpg',
     },{
+        id: 1,
         name: 'Benihanas',
         city: 'Torrance',
         state: 'CA',
