@@ -7,22 +7,21 @@
 // Added an array of objects for my favorite restuarants
 const router = require('express').Router()
 
-
+// Part 5
 router.get("/new", (req,res)=>{
     res.render("places/new")
 })
+//
 
 
 router.get("/", (req,res)=>{
     let places = [{
-        id: 0,
         name: 'Red Lobster',
         city: 'Long Beach',
         state: 'CA',
         cuisines: 'Seafoods, Steaks, Pastas, Side Dishes',
         pic: '/images/red-lobster-food.jpg',
     },{
-        id: 1,
         name: 'Benihanas',
         city: 'Torrance',
         state: 'CA',
