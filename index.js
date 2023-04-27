@@ -13,8 +13,10 @@ app.engine('jsx', require('express-react-views').createEngine())
 //
 // Class 4: rest-rants part 4
 app.use(express.static("public"))
-
 app.use("/places", require("./controllers/places"))
+
+// part 5: new app.use
+app.use(express.urlencoded({ extended: true }))
 
 // Changed res.send to res.render and placed "home" from home.jsx
 app.get("/", (req,res)=>{

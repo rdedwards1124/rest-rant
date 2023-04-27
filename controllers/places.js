@@ -7,7 +7,7 @@
 // Added an array of objects for my favorite restuarants
 const router = require('express').Router()
 
-// Part 5
+// Part 5 of rest-rants
 router.get("/new", (req,res)=>{
     res.render("places/new")
 })
@@ -31,5 +31,5 @@ router.get("/", (req,res)=>{
     res.render("places/index", {places})
 })
 
-
+  
 module.exports = router
