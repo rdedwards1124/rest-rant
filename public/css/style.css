@@ -4,6 +4,12 @@ h1 {
 }
 
 img {
-    width: 50%;
+    width: 60%;
     height: auto;
+    margin-left: 20%;
+}
+
+/* I added this to make places page look better*/
+h2 {
+    text-align: center;
 }
