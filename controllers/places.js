@@ -14,14 +14,14 @@ router.get("/", (req,res)=>{
         city: 'Long Beach',
         state: 'CA',
         cuisines: 'Seafoods, Steaks, Pastas, Side Dishes',
-        pic: 'https://www.fastfoodpost.com/wp-content/uploads/2022/02/Red-Lobster-Introduces-New-Date-Night-Feast-For-Two-And-Lobster-Topped-Stuffed-Flounder-As-Part-Of-Returning-Lobsterfest-Promotion.jpg',
+        pic: '/images/red-lobster-food.jpg',
     },{
         id: 1,
         name: 'Benihanas',
         city: 'Torrance',
         state: 'CA',
         cuisines: 'Fried Rice, Steaks, Vegetables, Seafoods',
-        pic: 'https://www.godairyfree.org/wp-content/uploads/2013/12/Benihana-feature.jpg',
+        pic: '/images/Benihana-food.jpg',
     },]
     res.render("places/index", {places})
 })
