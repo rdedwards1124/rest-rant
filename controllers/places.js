@@ -13,7 +13,6 @@ router.get("/new", (req,res)=>{
 })
 //
 
-
 router.get("/", (req,res)=>{
     let places = [{
         name: 'Red Lobster',
@@ -29,6 +28,11 @@ router.get("/", (req,res)=>{
         pic: '/images/Benihana-food.jpg',
     },]
     res.render("places/index", {places})
+})
+
+// Class 5: rest-rant part5, this was supposed to be added b4 part5 of the activity!!
+router.post("/", (req,res)=>{
+    res.send("POST /places stub")
 })
 
   
