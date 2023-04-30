@@ -2,16 +2,14 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 
-// // method override
-// const methodOverride = require('method-override')
+// method override
+const methodOverride = require('method-override')
 
 // Added for part 3
 
 /* ... I guess i add this now? rest-rant part4*/
 // app.set('views', __dirname + '/views')
-/**/
-
-
+/**/ //UPDATE!! DON'T NEED THIS!!
 
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
@@ -21,13 +19,15 @@ app.use(express.static("public"))
 
 // part 5: new app.use
 app.use(express.urlencoded({ extended: true }))
-// Update 4/30/23: That(line24) needs to go b4 this(line26)
+// Update 4/30/23: That(line above) needs to go b4 this(line 27)
+
+// part 6: method override?
+app.use(methodOverride('_method'))
+
 app.use("/places", require("./controllers/places"))
 
 
 
-// // part 6: method override?
-// app.use(methodOverride('_method'))
 
 // Changed res.send to res.render and placed "home" from home.jsx
 app.get("/", (req,res)=>{

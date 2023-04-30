@@ -19,6 +19,22 @@ router.get("/", (req,res)=>{
     res.render("places/index", {places})
 })
 
+
+
+// Where does this even go?...
+router.get('/:id', (req,res)=>{
+    let id = Number(req.params.id)
+    if (isNaN(id)) {
+        res.render("error404")
+    } else if (!places[id]) {
+        res.render("error404")
+    } else {
+        res.render("places/show", { place: places[id], id })
+    }
+  })
+
+
+
 // Class 5: rest-rant part5, this was supposed to be added b4 part5 of the activity!! The POST /places route
 router.post("/", (req,res)=>{
     let newPlace = { ...req.body }
@@ -35,19 +51,35 @@ router.post("/", (req,res)=>{
     places.push(newPlace)
     res.redirect("/places")
 })
-// Homework: picture will not show...
+// Homework: picture will not show... UPDATE 4/30/23: FIX IT!!
 
-// Where does this even go?...
-router.get('/:id', (req,res)=>{
+
+router.get('/:id/edit', (req,res)=>{
+    let id = Number(req.params.id)
+    if (isNaN(id)) {
+        res.render('error404')
+    }
+    else if (!places[id]) {
+        res.render('error404')
+    }
+    else {
+      res.render('places/edit', { place: places[id] }) // Do i need a ', id' here?
+    }
+  })
+  
+
+
+router.delete("/:id", (req,res)=>{
     let id = Number(req.params.id)
     if (isNaN(id)) {
         res.render("error404")
     } else if (!places[id]) {
         res.render("error404")
     } else {
-        res.render("places/show", { place: places[id] })
+        places.splice(id, 1)
+        res.redirect("/places")
     }
-  })
+})
   
 
 module.exports = router
