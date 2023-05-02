@@ -51,7 +51,7 @@ router.post("/", (req,res)=>{
     places.push(newPlace)
     res.redirect("/places")
 })
-// Homework: picture will not show... UPDATE 4/30/23: FIX IT!!
+// Homework: picture will not show... UPDATE 4/30/23: FIXED IT!!
 
 
 router.get('/:id/edit', (req,res)=>{
@@ -63,8 +63,8 @@ router.get('/:id/edit', (req,res)=>{
         res.render('error404')
     }
     else {
-      res.render('places/edit', { place: places[id] }) // Do i need a ', id' here?
-    }
+        res.render('places/edit', { place: places[id], id }) // Do i need a ', id' here?
+    }                                                        // UPDATE 5/1/23: yes, i do!!
   })
   
 

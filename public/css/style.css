@@ -1,17 +1,14 @@
 h1 {
     text-align: center;
     color: cornflowerblue;
+    padding-bottom: 40px;
+    padding-top: 30px;
 }
 
 img {
     width: 60%;
     height: auto;
     /* margin-left: 20%; */
-}
-
-/* I added this to make places page look better*/
-h2 {
-    text-align: center;
 }
 
 /* Added from part 6 */
@@ -44,11 +41,40 @@ nav a:hover {
 body {
     background-color: lightblue;
     text-align: center;
-  }
+}
   
-  main {
-    margin-right: 20px;
-    margin-left: 20px;
+main {
+    /* margin-right: 20px;
+    margin-left: 20px; */
     background-color: white;
-  }
-  
+}
+
+/*----------------------------------------------*/
+/*          My CSS for the show page            */
+/*----------------------------------------------*/
+
+
+h2 {
+    text-align: center;
+    color: lightblue;
+}
+
+.img {
+    width: 60%;
+    height: auto;
+    padding: 20px;
+}
+
+/* .inline {
+    display: flex;
+    justify-content: center;
+} */
+
+
+
+
+
+
+
+
+
