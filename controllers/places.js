@@ -7,109 +7,141 @@
 // Added an array of objects for my favorite restuarants
 const router = require('express').Router()
 const places = require("../models/places.js")
+// Part 8: added
+const db = require('../models')
+
 
 // Part 5 of rest-rants
 router.get("/new", (req,res)=>{
     res.render("places/new")
 })
-//
 
 // The Index Route
 router.get("/", (req,res)=>{
-    res.render("places/index", {places})
+    // res.render("places/index", {places})
+    // res.send('GET /places stub')
+    db.Place.find()
+    .then((places)=>{
+        res.render('places/index', {places})
+    })
+    .catch(err => {
+        console.log(err)
+        res.render('error404')
+    })
 })
-
-
 
 // Where does this even go?...
 router.get('/:id', (req,res)=>{
-    let id = Number(req.params.id)
-    if (isNaN(id)) {
-        res.render("error404")
-    } else if (!places[id]) {
-        res.render("error404")
-    } else {
-        res.render("places/show", { place: places[id], id })
-    }
-  })
-
-
+    // let id = Number(req.params.id)
+    // if (isNaN(id)) {
+    //     res.render("error404")
+    // } else if (!places[id]) {
+    //     res.render("error404")
+    // } else {
+    //     res.render("places/show", { place: places[id], id })
+    // }
+    // res.send('GET /places/:id stub')
+    db.Place.findById(req.params.id)
+    .then(place => {
+        res.render('places/show', {place})
+    })
+    .catch(err => {
+        console.log('err', err)
+        res.render('error404')
+    })
+})
 
 // Class 5: rest-rant part5, this was supposed to be added b4 part5 of the activity!! The POST /places route
 router.post("/", (req,res)=>{
-    let newPlace = { ...req.body }
-    if (newPlace.pic === "") {
-        // Default image if none is provided
-        newPlace.pic = "https://www.citypng.com/public/uploads/preview/hd-illustration-cartoon-burger-restaurant-png-11653268639gydp7epzbe.png"
-    }
-    if (newPlace.city === "") {
-        newPlace.city = "Anytown"
-    }
-    if (newPlace.state === "") {
-        newPlace.state = "USA"
-    }
-    places.push(newPlace)
-    res.redirect("/places")
+    // let newPlace = { ...req.body }
+    // if (newPlace.pic === "") {
+    //     // Default image if none is provided
+    //     newPlace.pic = "https://www.citypng.com/public/uploads/preview/hd-illustration-cartoon-burger-restaurant-png-11653268639gydp7epzbe.png"
+    // }
+    // if (newPlace.city === "") {
+    //     newPlace.city = "Anytown"
+    // }
+    // if (newPlace.state === "") {
+    //     newPlace.state = "USA"
+    // }
+    // places.push(newPlace)
+    // res.redirect("/places")
+    // res.send('POST /places stub')
+    db.Place.create(req.body)
+    .then(()=>{
+        res.redirect('/places')
+    })
+    .catch(err=>{
+        console.log('err', err)
+        res.render('error404')
+    })
 })
 // Homework: picture will not show... UPDATE 4/30/23: FIXED IT!!
 
-
 router.get('/:id/edit', (req,res)=>{
-    let id = Number(req.params.id)
-    if (isNaN(id)) {
-        res.render('error404')
-    }
-    else if (!places[id]) {
-        res.render('error404')
-    }
-    else {
-        res.render('places/edit', { place: places[id], id }) // Do i need a ', id' here?
-    }                                                        // UPDATE 5/1/23: yes, i do!!
+    // let id = Number(req.params.id)
+    // if (isNaN(id)) {
+    //     res.render('error404')
+    // }
+    // else if (!places[id]) {
+    //     res.render('error404')
+    // }
+    // else {
+    //     res.render('places/edit', { place: places[id], id }) // Do i need a ', id' here?
+    // }                                                        // UPDATE 5/1/23: yes, i do!!
+    res.send('GET edit form stub')
   })
   
-
 router.put('/:id', (req,res)=>{
-    let id = Number(req.params.id)
-    if (isNaN(id)) {
-        res.render('error404')
-    }
-    else if (!places[id]) {
-        res.render('error404')
-    }
-    else {
-        // Dig into req.body and make sure data is valid
-        if (!req.body.pic) {
-            // Default image if one is not provided
-            req.body.pic = '../public/images/cartoon-rest-rant.png'
-        }
-        if (!req.body.city) {
-            req.body.city = 'Anytown'
-        }
-        if (!req.body.state) {
-            req.body.state = 'USA'
-        }
+    // let id = Number(req.params.id)
+    // if (isNaN(id)) {
+    //     res.render('error404')
+    // }
+    // else if (!places[id]) {
+    //     res.render('error404')
+    // }
+    // else {
+    //     // Dig into req.body and make sure data is valid
+    //     if (!req.body.pic) {
+    //         // Default image if one is not provided
+    //         req.body.pic = '../public/images/cartoon-rest-rant.png'
+    //     }
+    //     if (!req.body.city) {
+    //         req.body.city = 'Anytown'
+    //     }
+    //     if (!req.body.state) {
+    //         req.body.state = 'USA'
+    //     }
   
-        // Save the new data into places[id]
-        places[id] = req.body
-        res.redirect(`/places/${id}`)
-    }
+    //     // Save the new data into places[id]
+    //     places[id] = req.body
+    //     res.redirect(`/places/${id}`)
+    // }
+    res.send('PUT /places/:id stub')
 })
-  
-  
-
 
 router.delete("/:id", (req,res)=>{
-    let id = Number(req.params.id)
-    if (isNaN(id)) {
-        res.render("error404")
-    } else if (!places[id]) {
-        res.render("error404")
-    } else {
-        places.splice(id, 1)
-        res.redirect("/places")
-    }
+    // let id = Number(req.params.id)
+    // if (isNaN(id)) {
+    //     res.render("error404")
+    // } else if (!places[id]) {
+    //     res.render("error404")
+    // } else {
+    //     places.splice(id, 1)
+    //     res.redirect("/places")
+    // }
+    res.send('DELETE /places/:id stub')
 })
-  
+
+// Part 8: This is new...
+router.post('/:id/rant', (req,res) => {
+    res.send('GET /places/:id/rant stub')
+})
+
+router.delete('/:id/rant/:rantId', (req,res) => {
+    res.send('GET /places/:id/rant/:rantId stub')
+})
+
 
 module.exports = router
 
