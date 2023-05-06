@@ -47,6 +47,9 @@ main {
     /* margin-right: 20px;
     margin-left: 20px; */
     background-color: white;
+    /* min-width: 600px;
+    margin-left: 10%;
+    margin-right: 10%; */
 }
 
 /*----------------------------------------------*/
@@ -60,9 +63,10 @@ h2 {
 }
 
 .img {
-    width: 60%;
+    width: 90%;
     height: auto;
     padding: 20px;
+    /* min-width: 400px; */
 }
 
 /* .inline {

@@ -5,22 +5,24 @@ const show = (data) => {
     return (
         <Def>
             <main>
-                <div className="inline">
-                    <div>
+                <div className="row">
+                    <div className="col-sm-6">
                         <img
                             className="img"
                             src={data.place.pic}
                             alt={data.place.name}
                         ></img>
+                        <p>Located in {data.place.city}, {data.place.state}</p>
                     </div>
-                    <div>
+                    <div className="col-sm-6">
                         <h1>{data.place.name}</h1>
 
                         <h2>Rating</h2>
                         <p>Not Rated yet...</p>
 
                         <h2>Description</h2>
-                        <p>A place where food is sold...</p>
+                        <p>{data.place.showEstablished()}</p>
+                        <p>Serving {data.place.cuisines}</p>
                     </div>
                 </div>
                 <div>
