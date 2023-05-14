@@ -8,4 +8,10 @@
 
 2. The pictures for Thai and Cat cafe pictures won't show...
 
+
+
+
+
+https://github.com/halfnibble/rest-rant-edit-delete/blob/master/README.md
+
 /---------------------------------------------------------*/

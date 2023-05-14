@@ -5,12 +5,6 @@ const app = express()
 // method override
 const methodOverride = require('method-override')
 
-// Added for part 3
-
-/* ... I guess i add this now? rest-rant part4*/
-// app.set('views', __dirname + '/views')
-/**/ //UPDATE!! DON'T NEED THIS!!
-
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 //
@@ -25,8 +19,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
 app.use("/places", require("./controllers/places"))
-
-
 
 
 // Changed res.send to res.render and placed "home" from home.jsx
