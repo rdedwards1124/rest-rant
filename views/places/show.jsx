@@ -18,9 +18,7 @@ const show = (data) => {
                 </div>
             );
         });
-        // rating section goes here
-        let sumRatings = 1;
-        let averageRatings = 2;
+        // 
     }
     return (
         <Def>
